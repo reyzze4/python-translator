@@ -4,10 +4,7 @@ from googletrans import Translator, LANGUAGES, LANGCODES
 translator = Translator()
 
 def TransLate(text, lang):
-    """
-    Функція для перекладу тексту. 
-    lang може бути назвою мови або ISO-639 кодом.
-    """
+
     try:
         lang_lower = str(lang).strip().lower()
         if lang_lower in LANGUAGES:
@@ -23,9 +20,7 @@ def TransLate(text, lang):
         return f"Помилка перекладу: {e}"
 
 def LangDetect(txt):
-    """
-    Функція, яка визначає мову тексту та повертає об'єкт з мовою та confidence.
-    """
+
     try:
         result = translator.detect(txt)
         return result
@@ -33,10 +28,7 @@ def LangDetect(txt):
         return f"Помилка визначення мови: {e}"
 
 def CodeLang(lang):
-    """
-    Функція, яка повертає код мови, якщо передано назву, 
-    або назву мови (з великої літери), якщо передано код.
-    """
+    
     lang_lower = str(lang).strip().lower()
     if lang_lower in LANGUAGES:
         return LANGUAGES[lang_lower].capitalize()
